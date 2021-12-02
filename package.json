@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.1",
+    "@types/fabric": "^4.5.5",
+    "parcel": "^2.0.1"
+  },
+  "dependencies": {
+    "fabric": "^4.6.0"
+  }
+}

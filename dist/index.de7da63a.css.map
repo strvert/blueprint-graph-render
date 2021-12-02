@@ -1,0 +1,1 @@
+{"mappings":"AAAA;EACI;;AAEA;EACI;EACA","sources":["src/styles.scss"],"sourcesContent":["body {\n    width: 100%;\n\n    .canvas-wrapper {\n        inline-size: 90%;\n        margin: 0 auto;\n    }\n}\n"],"names":[],"version":3,"file":"index.de7da63a.css.map","sourceRoot":"/__parcel_source_root/"}
