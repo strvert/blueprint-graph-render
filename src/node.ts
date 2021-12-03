@@ -1,3 +1,5 @@
+import parse from "parse-css-color";
+
 const pathRoundRect = (
   ctx: CanvasRenderingContext2D,
   left: number,
@@ -23,10 +25,12 @@ const defineNodeObject = (fabric) => {
     type: "node",
     initialize: function (opt) {
       const defaults = {
-        nodeColor: "#3195FF",
+        nodeColor: "rgb(31, 149, 255)",
         nodeTitle: "unknown",
         nodeHeaderHeight: 30,
 
+        originX: 'left',
+        originY: 'top',
         hasControls: false,
         width: 200,
         height: 200,
@@ -61,13 +65,16 @@ const defineNodeObject = (fabric) => {
       const height = this.height;
       const headerH = this.nodeHeaderHeight;
       ctx.translate(-width / 2, -height / 2);
+      const inColor = parse(this.nodeColor);
+      const headColor = `rgba(${inColor.values[0]}, ${inColor.values[1]}, ${inColor.values[2]}, ${this.opacity})`;
+      const baseColor = `rgba(17, 17, 17, ${this.opacity})`;
 
       // Head
       ctx.save();
       let g = ctx.createLinearGradient(0, -headerH * 2, width, headerH * 2);
-      g.addColorStop(0, this.nodeColor);
-      g.addColorStop(0.7, this.nodeColor);
-      g.addColorStop(1, "#111111");
+      g.addColorStop(0, headColor);
+      g.addColorStop(0.7, headColor);
+      g.addColorStop(1, baseColor);
 
       ctx.fillStyle = g;
       pathRoundRect(ctx, 0, 0, width, headerH, {
@@ -81,7 +88,7 @@ const defineNodeObject = (fabric) => {
 
       // Body
       ctx.save();
-      ctx.fillStyle = "#111111";
+      ctx.fillStyle = baseColor;
       pathRoundRect(ctx, 0, headerH, width, height - headerH, {
         lt: 0,
         rt: 0,

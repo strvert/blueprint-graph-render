@@ -5,6 +5,7 @@
     "parcel": "^2.0.1"
   },
   "dependencies": {
-    "fabric": "^4.6.0"
+    "fabric": "^4.6.0",
+    "parse-css-color": "^0.1.2"
   }
 }

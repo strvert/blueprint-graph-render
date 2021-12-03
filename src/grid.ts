@@ -7,22 +7,23 @@ const defineGridObject = (fabric) => {
         height: 500,
         gridRegularColor: "#363636",
         gridRulerColor: "#020202",
+        backgroundColor: "#272726",
         hasControls: false,
         selectable: false,
         hoverCursor: "default",
         span: 16,
       };
       const options = { ...defaults, ...opt };
-      const cmp = {
-        width:
-          (Math.ceil(options.width / options.span / 8) + 2) * options.span * 8,
-        height:
-          (Math.ceil(options.height / options.span / 8) + 2) * options.span * 8,
-        left: -options.span * 8,
-        top: -options.span * 8,
-      };
+      // const cmp = {
+      //   width:
+      //     (Math.ceil(options.width / options.span / 8) + 2) * options.span * 8,
+      //   height:
+      //     (Math.ceil(options.height / options.span / 8) + 2) * options.span * 8,
+      //   left: -options.span * 8,
+      //   top: -options.span * 8,
+      // };
 
-      this.callSuper("initialize", { ...options, ...cmp });
+      this.callSuper("initialize", { ...options });
     },
     _render: function (ctx: CanvasRenderingContext2D) {
       ctx.save();
